@@ -1,5 +1,5 @@
 {
-  "name": "SCSSNester",
+  "name": "scss-nester",
   "displayName": "SCSS Nester",
   "description": "SCSS Structure nesting formatter",
   "version": "0.0.1",
@@ -14,7 +14,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "SCSSNester.helloWorld",
+        "command": "Nest highlighted SCSS",
         "title": "Hello World"
       }
     ]
