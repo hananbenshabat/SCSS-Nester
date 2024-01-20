@@ -3,6 +3,10 @@
   "displayName": "SCSS Nester",
   "description": "SCSS Structure nesting formatter",
   "icon": "images/png/logo.png",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.85.0"
@@ -29,7 +33,8 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "publish": "vsce package && vsce publish"
   },
   "devDependencies": {
     "@types/vscode": "^1.85.0",
