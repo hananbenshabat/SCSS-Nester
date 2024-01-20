@@ -2,6 +2,7 @@
   "name": "scss-nester",
   "displayName": "SCSS Nester",
   "description": "SCSS Structure nesting formatter",
+  "icon": "images/png/logo.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.85.0"
