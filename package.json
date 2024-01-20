@@ -2,7 +2,7 @@
   "name": "scss-nester",
   "displayName": "SCSS Nester",
   "description": "SCSS Structure nesting formatter",
-  "icon": "images/png/logo.png",
+  "icon": "assets/images/png/logo.png",
   "repository": {
     "type": "git",
     "url": "git://github.com/hananbenshabat/SCSS-Nester.git"
