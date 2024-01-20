@@ -1,30 +1,72 @@
 {
     "root": true,
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "@typescript-eslint"
-    ],
-    "rules": {
-        "@typescript-eslint/naming-convention": [
-            "warn",
-            {
-                "selector": "import",
-                "format": [ "camelCase", "PascalCase" ]
+    "ignorePatterns": [".vscode", "node_modules", "dist", "out", "**/*.d.ts"],
+    "overrides": [
+        // Linter - ESLint - TS
+        {
+            "files": ["*.ts"],
+            "parserOptions": {
+                "project": ["*./tsconfig.json"],
+                "createDefaultProgram": true
+            },
+            "extends": [
+                "eslint:recomended",
+                "plugin:@angular-eslint/recommended",
+                "plugin:@angular-eslint/tempalte/process-inline-templates",
+                "plugin:@typescript-eslint/recommended",
+                "prettier"
+            ],
+            "plugins": ["@angular-eslint", "@typescript-eslint"],
+            "rules": {
+                "@angular-eslint/component-class-suffix": [
+                    "error",
+                    {
+                        "suffixes": ["Component"]
+                    }
+                ],
+                "@angular-eslint/component-selector": [
+                    "error",
+                    {
+                        "type": "element",
+                        "style": "kebab-case"
+                    }
+                ],
+                "@angular-eslint/directive-selector": [
+                    "error",
+                    {
+                        "type": "attribute",
+                        "style": "camelCase"
+                    }
+                ],
+                "@typescript-eslint/member-ordering": 0,
+                "@typescript-eslint/naming-convention": 0,
+                "@typescript-eslint/explicit-function-return-type": "error",
+                "@typescript-eslint/explicit-member-accessibility": "off",
+                "@typescript-eslint/no-explicit-any": "off",
+                "@typescript-eslint/no-unused-vars": [
+                    "error",
+                    {
+                        "vars": "all",
+                        "varsIgnorePattern": "(.)Effect\\$$"
+                    }
+                ],
+                "@typescript-eslint/prefer-interface": "off",
+                "no-console": "off"
             }
-        ],
-        "@typescript-eslint/semi": "warn",
-        "curly": "warn",
-        "eqeqeq": "warn",
-        "no-throw-literal": "warn",
-        "semi": "off"
-    },
-    "ignorePatterns": [
-        "out",
-        "dist",
-        "**/*.d.ts"
+        },
+        // Linter - ESLint - HTML
+        {
+            "files": ["*.html"],
+            "extends": ["plugin:@angular-eslint/template/recommended", "plugin:@angular-eslint/template/accessibility"],
+            "rules": {
+                "@angular-eslint/template/elements-content": "off",
+                "@angular-eslint/template/prefer-self-closing-tags": ["error"]
+            }
+        },
+        // Formatter - Prettier
+        {
+            "files": ["*"],
+            "extends": ["prettier"]
+        }
     ]
 }

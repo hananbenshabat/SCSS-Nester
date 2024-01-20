@@ -1,55 +1,82 @@
 {
-  "name": "scss-nester",
-  "displayName": "SCSS Nester",
-  "description": "SCSS Structure nesting formatter",
-  "icon": "assets/images/png/logo.png",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/hananbenshabat/SCSS-Nester.git"
-  },
-  "publisher": "hananbenshabat",
-  "version": "0.0.3",
-  "engines": {
-    "vscode": "^1.85.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [],
-  "main": "./dist/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "Nest highlighted SCSS",
-        "title": "Hello World"
-      }
-    ]
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run package",
-    "compile": "webpack",
-    "watch": "webpack --watch",
-    "package": "webpack --mode production --devtool hidden-source-map",
-    "compile-tests": "tsc -p . --outDir out",
-    "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "npm run compile-tests && npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "vscode-test",
-    "publish": "vsce package && vsce publish",
-    "update-pat": "vsce login hananbenshabat"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.85.0",
-    "@types/mocha": "^10.0.6",
-    "@types/node": "18.x",
-    "@typescript-eslint/eslint-plugin": "^6.15.0",
-    "@typescript-eslint/parser": "^6.15.0",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
-    "ts-loader": "^9.5.1",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4",
-    "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.8"
-  }
+    "name": "scss-nester",
+    "displayName": "SCSS Nester",
+    "description": "SCSS Structure nesting formatter",
+    "icon": "assets/images/png/logo.png",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/hananbenshabat/SCSS-Nester.git"
+    },
+    "publisher": "hananbenshabat",
+    "version": "0.0.3",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.nest",
+                "title": "Nest CSS"
+            },
+            {
+                "command": "extension.unNest",
+                "title": "unNests CSS"
+            },
+            {
+                "command": "extension.nestAndUnNest",
+                "title": "Nests selected unNested CSS rules, and unNests selected nested CSS rules."
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.nestAndUnNest",
+                "key": "Alt+n"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run package",
+        "compile": "webpack",
+        "watch": "webpack --watch",
+        "package": "webpack --mode production --devtool hidden-source-map",
+        "compile-tests": "tsc -p . --outDir out",
+        "watch-tests": "tsc -p . -w --outDir out",
+        "pretest": "npm run compile-tests && npm run compile && npm run lint",
+        "format": "prettier --write .",
+        "lint": "eslint src --ext ts --max-warnings 0",
+        "lint:fix": "npm run lint -- --fix",
+        "test": "vscode-test",
+        "publish": "vsce package && vsce publish",
+        "update-pat": "vsce login hananbenshabat"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.6",
+        "@types/node": "20.x",
+        "@types/vscode": "^1.85.0",
+        "@typescript-eslint/eslint-plugin": "^6.19.0",
+        "@typescript-eslint/parser": "^6.19.0",
+        "@vscode/test-cli": "^0.0.4",
+        "@vscode/test-electron": "^2.3.8",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "9.1.0",
+        "eslint-config-semistandard": "17.0.0",
+        "eslint-config-standard": "17.1.0",
+        "eslint-plugin-import": "2.29.1",
+        "eslint-plugin-n": "16.6.2",
+        "eslint-plugin-promise": "6.1.1",
+        "prettier": "3.2.4",
+        "ts-loader": "^9.5.1",
+        "typescript": "^5.3.3",
+        "webpack": "^5.89.0",
+        "webpack-cli": "^5.1.4"
+    },
+    "dependencies": {
+        "postcss": "^8.4.33",
+        "postcss-nested": "^6.0.1",
+        "postcss-selector-parser": "^6.0.15"
+    }
 }
